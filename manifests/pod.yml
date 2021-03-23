@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-api-pod
+spec:
+  containers:
+    - image: rumolinas/node-spinnaker
+      name: node-api
+      imagePullPolicy: Never
+      resources: {}
+      ports:
+        - containerPort: 3000
+      volumeMounts:
+        - name: nodeapi-data-volumes
+          mountPath: /configmap
+  volumes:
+    - name: nodeapi-data-volumes
+      configMap:
+        name: nodeapi-configmap

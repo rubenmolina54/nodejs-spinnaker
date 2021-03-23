@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nodeapi
+  name: nodeapi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodeapi
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nodeapi
+    spec:
+      containers:
+      - image: rumolinas/node-spinnaker
+        name: node-api
+        resources: {}
+        ports:
+          - containerPort: 3000 
+        volumeMounts:
+          - name: nodeapi-data-volumes
+            mountPath: /configmap
+      volumes:
+        - name: nodeapi-data-volumes
+          configMap:
+            name: nodeapi-configmap
+status: {}
