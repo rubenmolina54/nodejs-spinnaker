@@ -16,9 +16,9 @@ const server = http.createServer((req, res) => {
         const {name} = qs.parse(query);
         fs.readFile(`/configmap/${name}`, 'utf8', function (err,data) {
             if (err) {
-              return console.log(err);
+              res.end(`<h1>${name}: NO existe esta variable</h1>`)
             }
-            res.end(`<h1>${name}: ${data}</h1>`)
+            res.end(`<h1>Pod inicializado a las ${process.env['FECHA_INICIO']}<br><br><h1> - ${name}: ${data}</h1>`);
           });
     }
 
