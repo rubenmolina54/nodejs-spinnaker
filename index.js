@@ -23,11 +23,11 @@ const server = http.createServer((req, res) => {
     let envs = "";
     let env = process.env;
     Object.keys(env).forEach(function(key) {
-        envs += '\nexport ' + key + '="' + env[key] +'" \r\n ';
+        envs += '<br>export ' + key + '="' + env[key] +'" <br> ';
       });
 
     if (pathname === '/') {
-        res.end(`<h1>Hello World 11 - ${envs}</h1>`);
+        res.end(`<h1>${envs}</h1>`);
     }
 });
 
