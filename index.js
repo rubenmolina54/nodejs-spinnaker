@@ -10,8 +10,6 @@ const server = http.createServer((req, res) => {
     if (req.method !== 'GET') handleError(405, res);
 
     const {pathname, query} = url.parse(req.url);
-    // console.log(pathname, query);
-
     if (pathname === '/var') {
         const {name} = qs.parse(query);
         fs.readFile(`/configmap/${name}`, 'utf8', function (err,data) {
