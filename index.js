@@ -1,7 +1,7 @@
 const http = require('http');
 const qs = require("querystring");
 const url = require('url');
-const fs = require('fs');
+const fs = require('fs');0
 
 const port = process.env.PORT || 3000
 
@@ -19,7 +19,6 @@ const server = http.createServer((req, res) => {
             res.end(`<h1>Pod inicializado a las ${process.env['FECHA_INICIO']}<br><br><h1> - ${name}: ${data}</h1>`);
           });
     }
-
     let envs = "";
     let env = process.env;
     Object.keys(env).forEach(function(key) {
