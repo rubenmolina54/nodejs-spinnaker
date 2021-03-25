@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
             if (err) {
               res.end(`<h1>${name}: NO existe esta variable</h1>`)
             }
-            res.end(`<h1>Pod inicializado a las ${process.env['FECHA_INICIO']}<br><br><h1> - ${name}: ${data}</h1>`);
+            res.end(`<h1>Pod inicializado el ${process.env['FECHA_INICIO']}<br><br><h1> - ${name}: ${data}</h1>`);
           });
     }
     let envs = "";
